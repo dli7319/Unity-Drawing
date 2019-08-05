@@ -44,10 +44,10 @@ public class DrawingTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_Enabled && Input.GetKeyDown(KeyCode.C))
-        {
-            ClearCurrentDrawing();
-        }
+        // if (Input.GetKeyDown(KeyCode.C))
+        // {
+        //     ClearCurrentDrawing();
+        // }
     }
 
     public void ClearCurrentDrawing()
