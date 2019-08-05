@@ -10,10 +10,9 @@ public class DrawingTool : MonoBehaviour
     public Color drawingColor = new Color(0.231f, 0.659f, 0.525f);
 
     private NativeArray<Color32> currentDrawingArr;
-    private Vector2 previousPoint;
     private bool triggerDown = false;
-    private static int[] resolution = { 4096, 2048 };
-    private static Color32[] emptyColors;
+    private int[] resolution = { 4096, 2048 };
+    private Color32[] emptyColors;
     private int thickness = 8;
 
     private Vector2 prevPoint;
@@ -63,7 +62,6 @@ public class DrawingTool : MonoBehaviour
         }
         currentDrawingArr.CopyFrom(emptyColors);
         currentDrawing.Apply();
-        Debug.Log($"time to fill empty texture {stopwatch.Elapsed.TotalMilliseconds}");
     }
 
     /// <summary>
@@ -74,17 +72,16 @@ public class DrawingTool : MonoBehaviour
     /// <param name="end"></param>
     public void DrawLine(Vector2 start, Vector2 end)
     {
-        Debug.Log("Draw line called");
         if (Vector2.Distance(start, prevPoint) < 0.01f)
         {
             Vector2 midPoint = Vector2.Lerp(start, end, 0.5f);
-            DrawBezierCurve(prevMidpoint, midPoint, prevPoint);
+            DrawBezierCurve(prevMidpoint, midPoint, start);
             prevMidpoint = midPoint;
         }
         else
         {
             Vector2 midPoint = Vector2.Lerp(start, end, 0.5f);
-            DrawBezierCurve(start, midPoint, prevPoint);
+            DrawBezierCurve(start, midPoint, start);
             prevMidpoint = midPoint;
         }
 

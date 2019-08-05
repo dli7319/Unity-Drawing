@@ -6,6 +6,7 @@ Drawing is done on the CPU.
 
 Features
 -----
+* Adjustable resolution.
 * Adjustable color.
 * Adjustable thickness.
 * Draw straight lines.
