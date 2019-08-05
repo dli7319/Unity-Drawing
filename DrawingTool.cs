@@ -6,14 +6,6 @@ using DateTime = System.DateTime;
 
 public class DrawingTool : MonoBehaviour
 {
-
-    private bool m_Enabled = false;
-    public bool ToolEnabled
-    {
-        get { return m_Enabled; }
-        set => m_Enabled = value;
-    }
-
     public Texture2D currentDrawing;
     public Color drawingColor = new Color(0.231f, 0.659f, 0.525f);
 
